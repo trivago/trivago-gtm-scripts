@@ -29,11 +29,12 @@ TRV.Tag.doEvent = function() {
       'X-Trv-Ana-key': TRV.Tag.api_key
     }
   })
-    .then(function(response) {
-      console.log(response.json());
+    .then(function(response=>response.json())
+    .then(data=>{
+      console.log(data);
       window.RSLT_TRV.status = true;
-      window.RSLT_TRV.message = response.json();
-    })
+      window.RSLT_TRV.message = data;
+    }) 
     .catch(function(data) {
       window.RSLT_TRV.status = false;
       window.RSLT_TRV.message = data;
