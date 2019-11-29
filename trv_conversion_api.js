@@ -36,7 +36,7 @@ TRV.Tag.doEvent = function() {
     .then(data => {
         console.log(data);
         console.log(data.status);
-        if (data.status == 'FAILED'){
+        if (data.state == 'FAILED'){
           DATA_TRV.gtmOnFailure();
         } else {
           DATA_TRV.gtmOnSuccess();
