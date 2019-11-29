@@ -35,7 +35,13 @@ TRV.Tag.doEvent = function() {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        DATA_TRV.gtmOnSuccess();
+        console.log(data.status);
+        if (data.status == 'FAILED'){
+          DATA_TRV.gtmOnFailure();
+        } else {
+          DATA_TRV.gtmOnSuccess();
+        }
+        
       }) 
     .catch(function(data) {
       console.log('Error happened: ' + data);
