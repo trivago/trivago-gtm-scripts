@@ -3,7 +3,6 @@ var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
 
 console.log('script starting');
-console.log(data);
 console.log(DATA_TRV);
 var DATA_TRV = DATA_TRV;
 
