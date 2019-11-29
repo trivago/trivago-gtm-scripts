@@ -18,6 +18,8 @@ TRV.Tag.doEvent = function() {
     booking_date: TRV.Tag.booking_date
   }
 
+  console.log('calling endpoint');
+  console.log(opts);
   fetch('https://secde.trivago.com/tracking/booking', {
     method: 'post',
     body: JSON.stringify(opts),
@@ -31,7 +33,6 @@ TRV.Tag.doEvent = function() {
       console.log(response.json());
       window.RSLT_TRV.status = true;
       window.RSLT_TRV.message = response.json();
-      data.gtmOnSuccess();
     })
     .catch(function(data) {
       window.RSLT_TRV.status = false;
