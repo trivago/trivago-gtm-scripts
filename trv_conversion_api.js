@@ -1,7 +1,7 @@
 'use strict'
 var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
-window.RSLT_TRV = RSLT_TRV || {}
+window.RSLT_TRV = {}
 
 TRV.Tag.doEvent = function() {
   let opts = {
