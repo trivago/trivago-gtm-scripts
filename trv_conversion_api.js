@@ -1,7 +1,7 @@
 'use strict'
 var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
-window.RSLT_TRV = {}
+var DATA_TRV = DATA_TRV
 
 TRV.Tag.doEvent = function() {
   let opts = {
@@ -32,13 +32,11 @@ TRV.Tag.doEvent = function() {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        window.RSLT_TRV.status = true;
-        window.RSLT_TRV.message = data;
+        DATA_TRV.gtmOnSuccess();
       }) 
     .catch(function(data) {
-      window.RSLT_TRV.status = false;
-      window.RSLT_TRV.message = data;
       console.log('Error happened: ' + data);
+      DATA_TRV.gtmOnFailure();
     })
 }
 
