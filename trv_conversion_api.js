@@ -2,6 +2,11 @@
 var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
 
+console.log('script starting');
+console.log(data);
+console.log(DATA_TRV);
+var DATA_TRV = DATA_TRV;
+
 TRV.Tag.doEvent = function() {
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
@@ -31,9 +36,11 @@ TRV.Tag.doEvent = function() {
     .then(response => response.json())
     .then(data => {
         console.log(data);
+        DATA_TRV.gtmOnSuccess();
       }) 
     .catch(function(data) {
       console.log('Error happened: ' + data);
+      DATA_TRV.gtmOnFailure();
     })
 }
 
