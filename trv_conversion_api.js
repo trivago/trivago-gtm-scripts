@@ -1,7 +1,7 @@
 'use strict'
 var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
-var DATA_TRV = DATA_TRV
+var data = DATA_TRV
 
 TRV.Tag.doEvent = function() {
   let opts = {
@@ -32,11 +32,11 @@ TRV.Tag.doEvent = function() {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        DATA_TRV.gtmOnSuccess();
+        data.gtmOnSuccess();
       }) 
     .catch(function(data) {
       console.log('Error happened: ' + data);
-      DATA_TRV.gtmOnFailure();
+      data.gtmOnFailure();
     })
 }
 
