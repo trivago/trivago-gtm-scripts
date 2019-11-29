@@ -1,7 +1,7 @@
 'use strict'
 var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
-var RSLT_TRV = RSLT_TRV || {}
+window.RSLT_TRV = RSLT_TRV || {}
 
 TRV.Tag.doEvent = function() {
   let opts = {
@@ -29,13 +29,13 @@ TRV.Tag.doEvent = function() {
   })
     .then(function(response) {
       console.log(response.json());
-      RSLT_TRV.status = true;
-      RSLT_TRV.message = response.json();
+      window.RSLT_TRV.status = true;
+      window.RSLT_TRV.message = response.json();
       data.gtmOnSuccess();
     })
     .catch(function(data) {
-      RSLT_TRV.status = false;
-      RSLT_TRV.message = data;
+      window.RSLT_TRV.status = false;
+      window.RSLT_TRV.message = data;
       console.log('Error happened: ' + data);
     })
 }
