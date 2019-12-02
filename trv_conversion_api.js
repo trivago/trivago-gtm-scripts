@@ -43,13 +43,13 @@ TRV.Tag.doEvent = function() {
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
-      'X-Trv-Ana-key': TRV.Tag.api_key
+      'X-Trv-Ana-key': TRV.Tag.key
     }
   })
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        console.log(data.status);
+        console.log(data.state);
         if (data.state == 'FAILED'){
           DATA_TRV.gtmOnFailure();
         } else {
