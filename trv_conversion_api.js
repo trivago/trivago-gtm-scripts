@@ -2,8 +2,6 @@
 var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
 
-console.log('script starting');
-console.log(DATA_TRV);
 var DATA_TRV = DATA_TRV;
 var method = 'post';
 
@@ -28,8 +26,6 @@ TRV.Tag.doEvent = function() {
     channel: TRV.Tag.channel,
   }
 
-  console.log('calling endpoint');
-  console.log(opts);
   
   if (TRV.Tag.refund_confirmation == true) {
     method = 'delete';
