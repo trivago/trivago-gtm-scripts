@@ -5,6 +5,7 @@ TRV.Tag = TRV.Tag || {}
 console.log('script starting');
 console.log(DATA_TRV);
 var DATA_TRV = DATA_TRV;
+var method = 'post';
 
 TRV.Tag.doEvent = function() {
   let opts = {
@@ -13,18 +14,31 @@ TRV.Tag.doEvent = function() {
     hotel: TRV.Tag.hotel,
     arrival: TRV.Tag.arrival,
     departure: TRV.Tag.departure,
-    volume: TRV.Tag.volume,
-    booking_id: TRV.Tag.booking_id,
-    margin: TRV.Tag.margin,
-    currency: TRV.Tag.currency,
     date_format: TRV.Tag.date_format,
-    booking_date: TRV.Tag.booking_date
+    booking_date: TRV.Tag.booking_date,
+    booking_date_format: TRV.Tag.booking_date_format,
+    volume: TRV.Tag.volume,
+    currency: TRV.Tag.currency,
+    booking_id: TRV.Tag.booking_id,
+    locale: TRV.Tag.locale,
+    margin: TRV.Tag.margin,
+    margin_absolute: TRV.Tag.margin_absolute,
+    refund_confirmation: TRV.Tag.refund_confirmation,
+    refund_amount: TRV.Tag.refund_amount,
+    channel: TRV.Tag.channel,
   }
 
   console.log('calling endpoint');
   console.log(opts);
+  
+  if (TRV.Tag.refund_confirmation == true) {
+    method = 'delete';
+  } else {
+    method = 'post';
+  }
+  
   fetch('https://secde.trivago.com/tracking/booking', {
-    method: 'post',
+    method: method,
     body: JSON.stringify(opts),
     mode: 'cors',
     headers: {
