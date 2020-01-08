@@ -5,7 +5,19 @@ TRV.Tag = TRV.Tag || {};
 var DATA_TRV = DATA_TRV;
 var method = 'post';
 
+function trvCheckGetCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
 TRV.Tag.doEvent = function() {
+  if (TRV.Tag.trv_reference){
+    //trv_reference is not empty, do nothing
+  } else {
+    //attempt to extract trv_reference from the cookie
+    TRV.Tag.trv_reference = trvCheckGetCookie('GTM_TRV_REFERENCE_TR');
+  }
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
     trv_reference: TRV.Tag.trv_reference,
