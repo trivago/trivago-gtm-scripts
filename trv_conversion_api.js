@@ -4,11 +4,18 @@ TRV.Tag = TRV.Tag || {}
 
 var DATA_TRV = DATA_TRV;
 var method = 'post';
+const default_cookie_name = 'GTM_TRV_REFERENCE_TR';
+
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
 
 TRV.Tag.doEvent = function() {
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
-    trv_reference: TRV.Tag.trv_reference,
+    trv_reference: TRV.Tag.trv_reference || getCookie(default_cookie_name),
     hotel: TRV.Tag.hotel,
     arrival: TRV.Tag.arrival,
     departure: TRV.Tag.departure,
