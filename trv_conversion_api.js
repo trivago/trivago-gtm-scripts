@@ -35,9 +35,9 @@ TRV.Tag.doEvent = function() {
 
   
   if (TRV.Tag.refund_confirmation == true) {
-    method = 'delete';
+    TRV.method = 'delete';
   } else {
-    method = 'post';
+    TRV.method = 'post';
   }
   
   fetch('https://secde.trivago.com/tracking/booking', {
