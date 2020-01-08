@@ -3,10 +3,10 @@ var TRV = TRV || {}
 TRV.Tag = TRV.Tag || {}
 
 var DATA_TRV = DATA_TRV;
-var method = 'post';
-const default_cookie_name = 'GTM_TRV_REFERENCE_TR';
+TRV.method = 'post';
+TRV.default_cookie_name = 'GTM_TRV_REFERENCE_TR';
 
-function getCookie(name) {
+TRV.getCookie = function(name) {
   var value = "; " + document.cookie;
   var parts = value.split("; " + name + "=");
   if (parts.length == 2) return parts.pop().split(";").shift();
@@ -15,7 +15,7 @@ function getCookie(name) {
 TRV.Tag.doEvent = function() {
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
-    trv_reference: TRV.Tag.trv_reference || getCookie(default_cookie_name),
+    trv_reference: TRV.Tag.trv_reference || TRV.getCookie(TRV.default_cookie_name),
     hotel: TRV.Tag.hotel,
     arrival: TRV.Tag.arrival,
     departure: TRV.Tag.departure,
@@ -41,7 +41,7 @@ TRV.Tag.doEvent = function() {
   }
   
   fetch('https://secde.trivago.com/tracking/booking', {
-    method: method,
+    method: TRV.method,
     body: JSON.stringify(opts),
     mode: 'cors',
     headers: {
