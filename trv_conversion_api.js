@@ -38,6 +38,9 @@ TRV.Tag.doEvent = function() {
     channel: 'GTM',
   }
 
+  if (!TRV.Tag.trv_reference){
+    return;
+  }
   
   if (TRV.Tag.refund_confirmation == true) {
     method = 'delete';
