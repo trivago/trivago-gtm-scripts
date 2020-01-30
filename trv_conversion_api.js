@@ -18,6 +18,12 @@ TRV.Tag.doEvent = function() {
     //attempt to extract trv_reference from the cookie
     TRV.Tag.trv_reference = trvCheckGetCookie('GTM_TRV_REFERENCE_TR');
   }
+  if (TRV.Tag.trv_reference){ 
+    //trv_reference is not empty, do nothing
+  } else {
+    TRV.Tag.trv_reference = localStorage.getItem('GTM_TRV_REFERENCE_TR');
+  }
+  
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
     trv_reference: TRV.Tag.trv_reference,
