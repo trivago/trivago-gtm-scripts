@@ -37,12 +37,6 @@ if (!TRV_REF.placeholder) {
 }
 var trv_reference_val = qs[TRV_REF.placeholder];
 
-
-fetch('https://secde.trivago.com/page_check.php?pagetype=trv_ref&ref=329&trv='+trv_reference_val, {
-    method: 'GET'
-  });
-
-
 if (trv_reference_val) {
   setCookie("GTM_TRV_REFERENCE_TR", trv_reference_val, 30);
   localStorage.setItem("GTM_TRV_REFERENCE_TR", trv_reference_val);
