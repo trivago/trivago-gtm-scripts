@@ -12,16 +12,19 @@ function trvCheckGetCookie(name) {
 }
 
 TRV.Tag.doEvent = function() {
+  var tf_source=0;
   if (TRV.Tag.trv_reference){
     //trv_reference is not empty, do nothing
   } else {
     //attempt to extract trv_reference from the cookie
     TRV.Tag.trv_reference = trvCheckGetCookie('GTM_TRV_REFERENCE_TR');
+    tf_source=1;
   }
   if (TRV.Tag.trv_reference){ 
     //trv_reference is not empty, do nothing
   } else {
     TRV.Tag.trv_reference = localStorage.getItem('GTM_TRV_REFERENCE_TR');
+    tf_source=2;
   }
   
   let opts = {
@@ -42,6 +45,7 @@ TRV.Tag.doEvent = function() {
     refund_confirmation: TRV.Tag.refund_confirmation,
     refund_amount: TRV.Tag.refund_amount,
     channel: TRV.Tag.channel,
+    source: tf_source
   }
 
   if (!TRV.Tag.trv_reference){
