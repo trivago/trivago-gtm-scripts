@@ -27,6 +27,11 @@ TRV.Tag.doEvent = function() {
     tf_source=2;
   }
   
+  if (TRV.Tag.trv_reference=='deleted'){ 
+    TRV.Tag.trv_reference = trvCheckGetCookie('GTM_TRV_REFERENCE_TR');
+    tf_source=3;
+  }
+  
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
     trv_reference: TRV.Tag.trv_reference,
