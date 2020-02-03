@@ -11,6 +11,18 @@ function trvCheckGetCookie(name) {
   if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
+function findTrvRef(name) {
+    var theCookies = document.cookie.split(';');
+    for (var i = 1 ; i <= theCookies.length; i++) {
+		  if (theCookies[i-1].includes(name)){
+        var value = theCookies[i-1].split('=')[1];
+        if (value !== "false") {
+          return value;
+        }
+      }
+    }
+}
+
 TRV.Tag.doEvent = function() {
   var tf_source=0;
   if (TRV.Tag.trv_reference){
@@ -37,6 +49,10 @@ TRV.Tag.doEvent = function() {
     tf_source=4;
   }
   
+  if (TRV.Tag.trv_reference=="false"){
+    TRV.Tag.trv_reference = findTrvRef('GTM_TRV_REFERENCE_TR');
+    tf_source=5;
+  }
   
   let opts = {
     advertiser_id: TRV.Tag.advertiser_id,
