@@ -71,7 +71,7 @@ TRV.Tag.doEvent = function() {
     margin_absolute: TRV.Tag.margin_absolute,
     refund_confirmation: TRV.Tag.refund_confirmation,
     refund_amount: TRV.Tag.refund_amount,
-    channel: TRV.Tag.channel,
+    channel: "gtm",
     source: tf_source
   }
 
