@@ -98,6 +98,7 @@ TRV.Tag.doEvent = function() {
   
   if (TRV.Tag.refund_confirmation == true) {
     method = 'delete';
+    opts = opts_cancellation;
   } else {
     method = 'post';
   }
