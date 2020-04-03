@@ -71,10 +71,27 @@ TRV.Tag.doEvent = function() {
     margin_absolute: TRV.Tag.margin_absolute,
     refund_confirmation: TRV.Tag.refund_confirmation,
     refund_amount: TRV.Tag.refund_amount,
+    cancellation_date: TRV.Tag.cancellation_date,
+    cancellation_date_format: TRV.Tag.cancellation_date_format,  
     channel: "gtm",
     source: tf_source
   }
 
+  let opts_cancellation = {
+    advertiser_id: TRV.Tag.advertiser_id,
+    hotel: TRV.Tag.hotel,
+    arrival: TRV.Tag.arrival,
+    departure: TRV.Tag.departure,
+    date_format: TRV.Tag.date_format,
+    volume: TRV.Tag.volume,
+    currency: TRV.Tag.currency,
+    booking_id: TRV.Tag.booking_id,
+    refund_amount: TRV.Tag.refund_amount,
+    cancellation_date: TRV.Tag.cancellation_date,
+    cancellation_date_format: TRV.Tag.cancellation_date_format,  
+    channel: "gtm",
+    source: tf_source
+  }
   if (!TRV.Tag.trv_reference){
     return;
   }
